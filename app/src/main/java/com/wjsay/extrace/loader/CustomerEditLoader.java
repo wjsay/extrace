@@ -34,13 +34,13 @@ public class CustomerEditLoader  extends HttpAsyncTask{
 			adapter.setData(ci);
 			adapter.notifyDataSetChanged();
 		}
-		else if(class_data.equals("R_CustomerInfo"))		//�������
+		else if(class_data.equals("R_CustomerInfo"))		//保存完成
 		{
 			CustomerInfo ci = JsonUtils.fromJson(json_data, new TypeToken<CustomerInfo>(){});
 			adapter.getData().setID(ci.getID());
 			adapter.getData().onSave();
 			adapter.notifyDataSetChanged();
-			Toast.makeText(context, "�ͻ���Ϣ�������!", Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, "客户信息保存完成!", Toast.LENGTH_SHORT).show();
 		}
 		else
 		{

@@ -1,9 +1,13 @@
 package com.wjsay.extrace.ui.main;
 
+import com.mysql.jdbc.StringUtils;
 import com.wjsay.extrace.misc.model.UserInfo;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
+
+import static android.content.ContentValues.TAG;
 
 public class ExTraceApplication extends Application {
 	//private static final String PREFS_NAME = "ExTrace.cfg";
@@ -15,11 +19,15 @@ public class ExTraceApplication extends Application {
     public String getServerUrl() {  
         return settings.getString("ServerUrl", "");  
     }  
-    public String getMiscServiceUrl() {  
-        return getServerUrl() + settings.getString("MiscService", ""); 
-    }  
+    public String getMiscServiceUrl() {
+        String tmp = getServerUrl() + settings.getString("MiscService", "");
+        //Log.e(TAG, "getMiscServiceUrl: " + tmp);
+        return tmp;
+    }
     public String getDomainServiceUrl() {  
-        return getServerUrl() + settings.getString("DomainService", ""); 
+        String tmp = getServerUrl() + settings.getString("DomainService", "");
+        //Log.e(TAG, "getDomainServiceUrl: " + tmp);
+        return tmp;
     }  
   
     public UserInfo getLoginUser(){
